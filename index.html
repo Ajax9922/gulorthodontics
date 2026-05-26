@@ -190,6 +190,21 @@
   @keyframes fabpulse{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.7);opacity:0;}}
   @media(hover:hover){.fab:hover{padding-right:22px;gap:0;}.fab:hover .fab-label{max-width:120px;opacity:1;}}
   @media(min-width:760px){.fab{padding-right:22px;}.fab .fab-label{max-width:120px;opacity:1;}.fab-ic{padding-left:4px;}}
+
+  /* share band */
+  .share{background:#fff;padding:60px 0;}
+  .share-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px;}
+  .share-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Red Hat Display';font-weight:800;font-size:15px;
+    padding:13px 22px;border-radius:50px;cursor:pointer;border:1.5px solid var(--line);background:var(--cream);color:var(--teal);text-decoration:none;transition:.18s;}
+  .share-btn:active{transform:scale(.97);}
+  .share-btn.primary{background:var(--purple);color:#fff;border-color:var(--purple);}
+  .share-btn.wa{background:#25D366;color:#fff;border-color:#25D366;}
+  .toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(12px);background:var(--teal);color:#fff;
+    padding:12px 22px;border-radius:50px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:80;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  button.fab{border:none;cursor:pointer;font-family:inherit;}
+  .fab-share{bottom:calc(90px + env(safe-area-inset-bottom));background:var(--mauve);color:#3a2b30;box-shadow:0 12px 30px rgba(192,143,150,.55);}
 </style>
 </head>
 <body>
@@ -210,7 +225,7 @@
 
       <div class="cta-row">
         <a href="#book" class="btn btn-primary">Reserve Your Consultation</a>
-        <a href="tel:+13653603265" class="btn btn-ghost">&#128222; (365) 360-3265</a>
+        <a href="tel:+13653603265" class="btn btn-ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (365) 360-3265</a>
       </div>
 
       <div class="chips">
@@ -300,7 +315,7 @@
         <h2 class="sec-title">Reserve your opening consultation</h2>
         <p class="lead">Leave your details and we will reach out to schedule your complimentary consultation as soon as we open. Opening-week appointments are limited.</p>
         <ul class="contact">
-          <li><span class="ic">&#128222;</span> <a href="tel:+13653603265">(365) 360-3265</a></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <a href="tel:+13653603265">(365) 360-3265</a></li>
           <li><span class="ic">&#128231;</span> hello@gulorthodontics.ca</li>
           <li><span class="ic">&#128205;</span> 650 Kingston Rd, Steeple Hill Centre, Pickering, ON</li>
           <li><span class="ic">&#128197;</span> Opening Summer 2026</li>
@@ -349,6 +364,24 @@
   </div>
 </section>
 
+<!-- ===================== SHARE ===================== -->
+<section class="share">
+  <div class="wrap" style="text-align:center;max-width:640px;">
+    <span class="sec-eyebrow" style="color:var(--mauve)">Spread the Smile</span>
+    <h2 class="sec-title" style="font-size:clamp(26px,6.5vw,38px);">Know someone who'd love a new smile?</h2>
+    <p style="font-size:16px;color:#5c5862;margin-top:12px;">Share Gul Orthodontics with friends and family across Pickering &amp; Durham Region.</p>
+    <div class="share-row">
+      <button type="button" class="share-btn primary" onclick="sharePage()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg> Share</button>
+      <a class="share-btn wa" id="shWa" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="share-btn" id="shSms">&#128241; Text</a>
+      <a class="share-btn" id="shEmail">&#9993; Email</a>
+      <button type="button" class="share-btn" onclick="copyLink()">&#128203; Copy link</button>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast">Link copied!</div>
+
 <!-- ===================== PRIVACY NOTICE ===================== -->
 <section id="privacy" style="background:var(--cream);padding:54px 0;">
   <div class="wrap" style="max-width:840px;">
@@ -373,10 +406,16 @@
   </div>
 </footer>
 
+<!-- FLOATING SHARE BUTTON -->
+<button type="button" class="fab fab-share" onclick="sharePage()" aria-label="Share Gul Orthodontics">
+  <span class="fab-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></span>
+  <span class="fab-label">Share</span>
+</button>
+
 <!-- FLOATING CALL BUTTON -->
 <a class="fab" href="tel:+13653603265" aria-label="Call Gul Orthodontics (365) 360-3265">
   <span class="fab-ring"></span>
-  <span class="fab-ic">&#128222;</span>
+  <span class="fab-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
   <span class="fab-label">Call Us</span>
 </a>
 
@@ -449,6 +488,27 @@
       });
     return false;
   }
+
+  // ---------- SHARE ----------
+  function pageUrl(){return window.location.href;}
+  function shareMsg(){return "Gul Orthodontics is opening in Pickering \u2014 full-scope orthodontic care for all ages. Reserve a complimentary consultation: ";}
+  function showToast(m){var t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1900);}
+  function sharePage(){
+    if(navigator.share){
+      navigator.share({title:'Gul Orthodontics \u2014 Now Booking in Pickering',text:shareMsg(),url:pageUrl()}).catch(function(){});
+    } else { copyLink(); }
+  }
+  function copyLink(){
+    var url=pageUrl();
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(function(){showToast('Link copied!');},function(){showToast(url);});}
+    else { showToast(url); }
+  }
+  (function(){
+    var u=encodeURIComponent(pageUrl()), t=encodeURIComponent(shareMsg());
+    var wa=document.getElementById('shWa'); if(wa) wa.href='https://wa.me/?text='+t+u;
+    var sms=document.getElementById('shSms'); if(sms) sms.href='sms:?&body='+t+u;
+    var em=document.getElementById('shEmail'); if(em) em.href='mailto:?subject='+encodeURIComponent('A new orthodontics clinic opening in Pickering')+'&body='+t+u;
+  })();
 </script>
 </body>
 </html>
